@@ -37,7 +37,8 @@ export default function Sheet() {
   const fileList = Array.from(fileSet); 
 
   return (
-    <div style={{width:'100%'}}>
+    <div className='flex flex-col justify-center items-center' >
+      <div className='flex flex-row'>
       <input type="file" className='btn btn-secondary mx-4 my-4' onChange={(event) => setImageUpload(event.target.files[0])} />
     {uploading?<button type="button" className='btn btn-warning' >
     <div class="spinner-border text-danger" role="status">
@@ -47,11 +48,13 @@ export default function Sheet() {
       <button type="button" className='btn btn-secondary' onClick={uploadImage}>
         Upload File
       </button>}
+      </div>
       <div className='flex-direction'>
       {fileList.map((url, index) => (
               <SingleFiles key={index} url={url}/>
               ))}
       </div>
-    </div>
+     
+      </div>
   );
 }
